@@ -8,8 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export",
-    "deploy": "gh-pages -d out"
+    "export": "next build && next export && touch ./out/.nojekyll",
+    "deploy": "gh-pages -d out -t true"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/marcoandre1/speakers-app/issues"
   },
-  "homepage": "https://github.com/marcoandre1/speakers-app#readme",
+  "homepage": "https://modokemdev.com/speakers-app",
   "dependencies": {
     "next": "^9.5.5",
     "react": "^17.0.1",
