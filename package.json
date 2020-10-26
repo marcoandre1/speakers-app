@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/marcoandre1/speakers-app/issues"
   },
-  "homepage": "https://modokemdev.com/speakers-app",
+  "homepage": "https://github.com/marcoandre1/speakers-app#readme",
   "dependencies": {
     "next": "^9.5.5",
     "react": "^17.0.1",
