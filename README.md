@@ -53,8 +53,8 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 module.exports = (phase, { defaultConfig }) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
-        /* development only config options here */
-        basePath: '',
+      /* development only config options here */
+      basePath: '',
     }
   }
 
@@ -63,7 +63,6 @@ module.exports = (phase, { defaultConfig }) => {
     basePath: '/speakers-app',
   }
 }
-
 ```
 
 - Update `package.json` and run `npm run export` (via `git bash`):
@@ -95,3 +94,44 @@ npm install gh-pages --save-dev
 > If you get [error branch already exists](https://www.npmjs.com/package/gh-pages#when-get-error-branch-already-exists), run `rd /s /q node_modules/.cache/gh-pages` if you are on command prompt or `rd -r node_modules/.cache/gh-pages` if you are on PowerShell.
 
 > Finally, as noted in a comment from [Assets not loading on GitHub Pages with Custom Domain](https://github.com/vercel/next.js/issues/8316#issuecomment-629853377), we need to add a `.nojekyll` file to the static build and run `gh-pages` with the `-t true` attribute.
+
+## Add prettier
+
+Follow the [installation guide](https://prettier.io/docs/en/install.html):
+
+- Install Prettier locally:
+
+```console
+npm install --save-dev --save-exact prettier
+```
+
+- Create an empty config file to let editors and other tooling know you are using Prettier:
+
+```console
+echo {}> .prettierrc.json
+```
+
+- Add the following basic configuration:
+
+```json
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true
+}
+```
+
+- Create a `.prettierignore` file to let the Prettier CLI and editors know which files to not format.
+
+> Tip! Base your `.prettierignore` on `.gitignore` and `.eslintignore` (if you have one).
+
+- Update `package.json`:
+
+```json
+"scripts": {
+  "prettier": "prettier --write ."
+}
+```
+
+- Run `npm run prettier`
