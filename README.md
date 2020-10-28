@@ -146,7 +146,7 @@ Follow the **Customizing PostCSS config** in the [learning guide](https://nextjs
 npm install tailwindcss postcss-preset-env postcss-flexbugs-fixes
 ```
 
-Then add `postcss.config.js`:
+- Then add `postcss.config.js`:
 
 ```js
 module.exports = {
@@ -192,7 +192,7 @@ module.exports = {
 
 ## Runtime configuration
 
-Because we are deploying to a subfolder path, we need to ensure that we are fetching the data from the right directory (subfolder). The [Base Path]() configuration does a good job but we need a little extra sometimes, specially for images. This is were [Runtime Configuration]() becomes useful.
+Because we are deploying to a subfolder path, we need to ensure that we are fetching the data from the right directory (subfolder). The [Base Path](https://nextjs.org/docs/api-reference/next.config.js/basepath) configuration does a good job but we need a little extra sometimes, specially for images. This is were [Runtime Configuration](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) becomes useful.
 
 - Add runtime configuration to your app by adding the `publicRuntimeConfig` and `serverRuntimeConfig` configs in the `next.config.js`:
 
