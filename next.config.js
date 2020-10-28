@@ -5,11 +5,29 @@ module.exports = (phase, { defaultConfig }) => {
     return {
       /* development only config options here */
       basePath: '',
+      serverRuntimeConfig: {
+        // Will only be available on the server side
+        mySecret: 'secret',
+        secondSecret: process.env.SECOND_SECRET, // Pass through env variables
+      },
+      publicRuntimeConfig: {
+        // Will be available on both server and client
+        rootFolder: '',
+      },
     }
   }
 
   return {
     /* config options for all phases except development here */
     basePath: '/speakers-app',
+    serverRuntimeConfig: {
+      // Will only be available on the server side
+      mySecret: 'secret',
+      secondSecret: process.env.SECOND_SECRET, // Pass through env variables
+    },
+    publicRuntimeConfig: {
+      // Will be available on both server and client
+      rootFolder: '/speakers-app',
+    },
   }
 }
