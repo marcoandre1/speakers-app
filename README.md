@@ -135,3 +135,100 @@ echo {}> .prettierrc.json
 ```
 
 - Run `npm run prettier`
+
+## Add Tailwind
+
+Follow the **Customizing PostCSS config** in the [learning guide](https://nextjs.org/learn/basics/assets-metadata-css/styling-tips) and take a look at the [Tailwind CSS example](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss) from Next.js repo. If you need more custom configuration, take a look at the [Built-In CSS Support](https://nextjs.org/docs/basic-features/built-in-css-support) from Next.js documentation.
+
+- First, install [Tailwind CSS](https://tailwindcss.com/):
+
+```console
+npm install tailwindcss postcss-preset-env postcss-flexbugs-fixes
+```
+
+Then add `postcss.config.js`:
+
+```js
+module.exports = {
+  plugins: [
+    'tailwindcss',
+    'postcss-flexbugs-fixes',
+    [
+      'postcss-preset-env',
+      {
+        autoprefixer: {
+          flexbox: 'no-2009',
+        },
+        stage: 3,
+        features: {
+          'custom-properties': false,
+        },
+      },
+    ],
+  ],
+}
+```
+
+- Finally, add `tailwind.config.js` and remove unused CSS by specifying the `purge` option:
+
+```js
+module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
+  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'accent-1': '#333',
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+## Runtime configuration
+
+Because we are deploying to a subfolder path, we need to ensure that we are fetching the data from the right directory (subfolder). The [Base Path]() configuration does a good job but we need a little extra sometimes, specially for images. This is were [Runtime Configuration]() becomes useful.
+
+- Add runtime configuration to your app by adding the `publicRuntimeConfig` and `serverRuntimeConfig` configs in the `next.config.js`:
+
+```js
+module.exports = {
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    mySecret: 'secret',
+    secondSecret: process.env.SECOND_SECRET, // Pass through env variables
+  },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    staticFolder: '/static',
+  },
+}
+```
+
+- To get access to the runtime configs in your app use `next/config`:
+
+```js
+import getConfig from 'next/config'
+
+// Only holds serverRuntimeConfig and publicRuntimeConfig
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+// Will only be available on the server-side
+console.log(serverRuntimeConfig.mySecret)
+// Will be available on both server-side and client-side
+console.log(publicRuntimeConfig.staticFolder)
+
+function MyImage() {
+  return (
+    <div>
+      <img src={`${publicRuntimeConfig.staticFolder}/logo.png`} alt="logo" />
+    </div>
+  )
+}
+
+export default MyImage
+```
