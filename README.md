@@ -1,7 +1,17 @@
 # Speakers App
 
+This repository was built to deploy a [Next.js](https://nextjs.org/) app to [GitHub Pages](https://pages.github.com/) using [gh-pages](https://www.npmjs.com/package/gh-pages). We are rendering the data from an array in the `speakers` component. If you want to add a database, take a look at my GitHub repository [next-tailwind-app](https://github.com/marcoandre1/next-tailwind-app).
+
 > To run this project locally, clone the project and run `npm run dev`.  
 > To deploy, use `git bash` and run `npm run export` followed by `npm run deploy`.
+
+## Index
+
+1. [Setting up a new project](https://github.com/marcoandre1/speakers-app#setting-up-a-new-project)
+2. [Deploy to GitHub pages](https://github.com/marcoandre1/speakers-app#deploy-to-github-pages)
+3. [Add Prettier](https://github.com/marcoandre1/speakers-app#add-prettier)
+4. [Add Tailwind CSS](https://github.com/marcoandre1/speakers-app#add-tailwind-css)
+5. [Runtime configuration](https://github.com/marcoandre1/speakers-app#runtime-configuration)
 
 ## Setting up a new project
 
@@ -98,7 +108,7 @@ npm install gh-pages --save-dev
 
 > Finally, as noted in a comment from [Assets not loading on GitHub Pages with Custom Domain](https://github.com/vercel/next.js/issues/8316#issuecomment-629853377), we need to add a `.nojekyll` file to the static build and run `gh-pages` with the `-t true` tag.
 
-## Add prettier
+## Add Prettier
 
 Follow the [installation guide](https://prettier.io/docs/en/install.html):
 
@@ -139,7 +149,7 @@ echo {}> .prettierrc.json
 
 - Run `npm run prettier`
 
-## Add Tailwind
+## Add Tailwind CSS
 
 Follow the **Customizing PostCSS config** section in the [learning guide](https://nextjs.org/learn/basics/assets-metadata-css/styling-tips) and take a look at the [Tailwind CSS example](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss) from Next.js repo. If you need more custom configuration, take a look at the [Built-In CSS Support](https://nextjs.org/docs/basic-features/built-in-css-support) from Next.js documentation.
 
@@ -237,7 +247,3 @@ export default MyImage
 ```
 
 > Take a look at the `next.config.js` file in this project and the components that use `publicRuntimeConfig`.
-
-## Final notes
-
-This repository was built to deploy an app to GitHub using [Next.js](https://nextjs.org/). We are rendering the data from an array in the `speakers` component. If you want to add a database, take a look at the original repository [next-tailwind-app](https://github.com/marcoandre1/next-tailwind-app) in my GitHub repositories.
