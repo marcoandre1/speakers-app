@@ -1,7 +1,7 @@
 {
   "name": "speakers-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Next.js app ready to deploy to GitHub Pages using gh-pages",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,9 +16,14 @@
     "type": "git",
     "url": "git+https://github.com/marcoandre1/speakers-app.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Next.js",
+    "GitHub Pages",
+    "gh-pages",
+    "Tailwind CSS"
+  ],
+  "author": "modokemdev (https://modokemdev.com/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/marcoandre1/speakers-app/issues"
   },
