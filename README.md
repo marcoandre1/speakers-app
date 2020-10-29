@@ -1,6 +1,6 @@
 # Speakers App
 
-**Website** : [modokemdev.com/speakers-app](https://modokemdev.com/speakers-app/)
+**Demo Website** : [modokemdev.com/speakers-app](https://modokemdev.com/speakers-app/)
 
 This repository was built to deploy a [Next.js](https://nextjs.org/) app to [GitHub Pages](https://pages.github.com/) using [gh-pages](https://www.npmjs.com/package/gh-pages). We are rendering the data from an array in the `speakers` component. If you want to add a database, take a look at my GitHub repository [next-tailwind-app](https://github.com/marcoandre1/next-tailwind-app).
 

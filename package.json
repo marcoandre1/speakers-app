@@ -16,7 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/marcoandre1/speakers-app.git"
   },
-  "keywords": ["Next.js", "GitHub Pages", "gh-pages", "Tailwind CSS"],
+  "keywords": [
+    "Next.js",
+    "GitHub Pages",
+    "gh-pages",
+    "Tailwind CSS"
+  ],
   "author": "modokemdev (https://modokemdev.com/)",
   "license": "MIT",
   "bugs": {
